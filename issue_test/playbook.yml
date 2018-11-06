@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - role: amygos.nethserver_vagrant_base_setup
+
+    - role: amygos.nethserver_accounts_provider
+      vars:
+        account_provider:
+          type: "ldap"
+          remote: false
+        users_list:
+          - username: "test"
+            full_name: "test"
+            password: "test"
+
+    - role: amygos.nethserver_install_packages
+      vars:
+        packages_lists:
+          - enablerepo:
+              - nethserver-testing
+            pkgs:
+              - nethserver-webtop5
