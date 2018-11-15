@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define "nethserver"
+  config.vm.box = "nethserver/7"
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "public_network", type: "dhcp"
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+    ansible.become = true
+    ansible.galaxy_role_file = "requirements.yml"
+  end
+
+end

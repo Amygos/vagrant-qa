@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - role: amygos.nethserver_vagrant_base_setup
