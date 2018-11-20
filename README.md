@@ -2,10 +2,10 @@
 
 ## QA Process Steps
 
-1. Merge all pull requst
-1. Wait for packages to be upload in testing
+1. Merge all pull requests
+1. Wait for packages to be uploaded in testing
 1. Prepare QA environment
-1. Write tests Cases and assing to relative test env
+1. Write tests cases and assing to related test env
 1. Add "testing" tag to the issue
 
 ## Prepare QA environment
@@ -16,8 +16,8 @@
 ```
 gist  -d "Amygos/dev#1 QA ENV 1" Vagrantfile playbook.yml requirements.ym
 ```
-* Copy the relative gist link or use `-c` options for copy the resulting link to the clipboard
-* Add the link to the QA test cases in the relative issue.
+* Copy the related gist link or use `-c` options to copy the resulting link to the clipboard
+* Add the link to the QA test cases in the issue
 
 ## Execute QA test
 
@@ -26,28 +26,28 @@ gist  -d "Amygos/dev#1 QA ENV 1" Vagrantfile playbook.yml requirements.ym
 1. Follow the QA steps
 1. Report the QA result
 
-In case of multiple QA test case with the same QA environment, make sure to clean the environment with:
+In case of multiple QA test cases with the same QA environment, make sure to clean the environment with:
 `vagant destroy` before `vagant up`
 
 ## QA environments examples
 
-* [**qa env 1**](examples_qa_envs/qa_env_1/): simple QA environment with one interface red (host nat) and one interface green (local private network)
-* [**qa env 2**](examples_qa_envs/qa_env_2/): simple QA environment with one interface red (host nat) and one interface green (bridge to host interface)
+* [**qa env 1**](examples_qa_envs/qa_env_1/): simple QA environment with one red interface (host nat) and one green interface (local private network)
+* [**qa env 2**](examples_qa_envs/qa_env_2/): simple QA environment with one red interface (host nat) and one green interface (bridge to host interface)
 * [**qa env webtop5**](examples_qa_envs/qa_env_webtop5/): QA environment with Webtop5 installed and local ldap as Accounts provider
 * [**qa env enterprise**](examples_qa_envs/qa_env_enterprise): QA environment with Nethesis enterprise repository installed
 * **qa env nethvoice**: QA environment with Nethesis enterprise repository installed
 
 ## Ansible role list
-List of common ansible roles used for create QA environments:
+List of common ansible roles used to create QA environments:
 
 * [amygos.nethserver_vagrant_base_setup](https://galaxy.ansible.com/Amygos/nethserver_vagrant_base_setup): role used for first config setup, will be the first role to use in most of the cases
-* [amygos.nethserver_install_packages](https://galaxy.ansible.com/Amygos/nethserver_install_packages): role for install lists of list of packages
-* [amygos.nethserver_accounts_provider](https://galaxy.ansible.com/Amygos/nethserver_accounts_provider): role for install Accounts provider
-* [amygos.nethesis_addrepos](https://galaxy.ansible.com/Amygos/nethesis_addrepos): role for install Nethesis enterprise repository.
+* [amygos.nethserver_install_packages](https://galaxy.ansible.com/Amygos/nethserver_install_packages): role to install lists of list of packages
+* [amygos.nethserver_accounts_provider](https://galaxy.ansible.com/Amygos/nethserver_accounts_provider): role to install Accounts provider
+* [amygos.nethesis_addrepos](https://galaxy.ansible.com/Amygos/nethesis_addrepos): role to install Nethesis enterprise repository.
 
 ## Libvirt Vagrant provider
 
-For disable password prompt: https://lalatendu.org/2016/02/24/get-rid-of-password-prompt-for-vagrant-commands-on-libvirt/
+To disable the password prompt: https://lalatendu.org/2016/02/24/get-rid-of-password-prompt-for-vagrant-commands-on-libvirt/
 ```
 # cd  /etc/polkit-1/localauthority/50-local.d
 # cat vagrant.pkla 
