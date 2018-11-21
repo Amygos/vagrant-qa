@@ -1,0 +1,2 @@
+- src: amygos.nethserver_install_packages
+- src: amygos.nethserver_vagrant_base_setup

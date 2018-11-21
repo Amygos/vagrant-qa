@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define "nethserver"
+  config.vm.box = "nethserver/7"
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "private_network", type: "dhcp"
+
+  config.vm.provider :libvirt do |libvirt|
+    libvirt.storage :file, :bus => 'usb'
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+    ansible.become = true
+    ansible.galaxy_role_file = "requirements.yml"
+  end
+
+ config.vm.provision "shell",
+    inline: "mkfs.ext2 -F -L backup-test /dev/sda"
+
+end

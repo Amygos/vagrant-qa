@@ -34,6 +34,7 @@ In case of multiple QA test cases with the same QA environment, make sure to cle
 * [**qa env 1**](examples_qa_envs/qa_env_1/): simple QA environment with one red interface (host nat) and one green interface (local private network)
 * [**qa env 2**](examples_qa_envs/qa_env_2/): simple QA environment with one red interface (host nat) and one green interface (bridge to host interface)
 * [**qa env webtop5**](examples_qa_envs/qa_env_webtop5/): QA environment with Webtop5 installed and local ldap as Accounts provider
+* [**qa env backup**](examples_qa_envs/qa_env_backup/): QA environment with nethserver-backup group installed and additional usb disk attached (`libvirt` provider required)
 * [**qa env enterprise**](examples_qa_envs/qa_env_enterprise): QA environment with Nethesis enterprise repository installed
 * **qa env nethvoice**: QA environment with Nethesis enterprise repository installed
 
